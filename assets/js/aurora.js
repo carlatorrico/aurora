@@ -27,6 +27,7 @@ function iniciarJogo() {
 }
 
 function calcularPontuacao() {
+    document.getElementById("variacao").style.display = "block";
     document.getElementById("resultado").style.display = "block";
 
     /**
@@ -76,7 +77,10 @@ function calcularPontuacao() {
     $("#maior").html(pontosMaior);
 
     // 1 par e 1 trio = soma os 5 dados
-    var pontosFull = calcularFull();
+    var pontosFull = 0;
+    if(pontosPar > 0 && pontosTrio > 0){
+        var pontosFull = pontosPar + pontosTrio;
+    }
     $("#full").html(pontosFull);
 
     var pontosAurora = calcularAurora();
@@ -112,6 +116,7 @@ function calcularRepeticao(tipo, quantidade) {
 
     resObj = {};
 
+    var resultadoParcial = [];
     $.each(obj, function(i, repeticao) {
 
         resObj[i] = (repeticao * i);
@@ -120,6 +125,7 @@ function calcularRepeticao(tipo, quantidade) {
         if(tipo == repeticao) {
             somaTotal = somaTotal + resObj[i];
             somaPares++;
+            resultadoParcial[somaPares] = resObj[i];
         }
     });
 
@@ -128,7 +134,7 @@ function calcularRepeticao(tipo, quantidade) {
             if(somaPares == 1)
                 return somaTotal;
             else
-                return 0;
+                return resultadoParcial[2];
             break;
         case 2:
             if(somaPares == 2)
@@ -137,20 +143,87 @@ function calcularRepeticao(tipo, quantidade) {
                 return 0;
             break;
     }
-
     return somaTotal;
 }
 
 function calcularMenor() {
-    return 0;
+    var opt1 = [1,2,3,4];
+    var opt2 = [2,3,4,5];
+    var opt3 = [3,4,5,6];
+    var dados = getDados();
+    var menor = true;
+    var res = 0;
+
+    opt1.forEach(function(elemento) {
+        if($.inArray(elemento, dados) == -1){
+            menor = false;
+        }
+    });
+
+    if(menor == false){
+        menor = true;
+        opt2.forEach(function(elemento) {
+            if($.inArray(elemento, dados) == -1){
+                menor = false;
+            }
+        });
+
+        if(menor == false){
+            menor = true;
+            opt3.forEach(function(elemento) {
+                if($.inArray(elemento, dados) == -1){
+                    menor = false;
+                }
+            });
+            if(menor == false){
+                res = 0;
+            }
+            else{
+                res = 15;
+            }
+        }
+        else{
+            res = 15;
+        }
+    }
+    else{
+        res = 15;
+    }
+    return res;
 }
 
 function calcularMaior() {
-    return 0;
-}
+    var opt1 = [1,2,3,4,5];
+    var opt2 = [2,3,4,5,6];
+    var dados = getDados();
+    var maior = true;
+    var res = 0;
 
-function calcularFull() {
-    return 0;
+    opt1.forEach(function(elemento) {
+        if($.inArray(elemento, dados) == -1){
+            maior = false;
+        }
+    });
+
+    if(maior == false){
+        maior = true;
+        opt2.forEach(function(elemento) {
+            if($.inArray(elemento, dados) == -1){
+                maior = false;
+            }
+        });
+
+        if(maior == false){
+            res = 0;
+        }
+        else{
+            res = 20;
+        }
+    }
+    else{
+        res = 20;
+    }
+    return res;
 }
 
 function  calcularAurora() {

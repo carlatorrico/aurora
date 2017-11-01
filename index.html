@@ -20,26 +20,25 @@
     <div class="card">
         <div class="card-header"><h4>Jogo dos 5 dados</h4></div>
         <div class="view overlay hm-white-slight">
-            <p class="text-justify mx-4 my-4">O objetivo do exercício é desenvolver parte de um aplicativo que auxilie um jogador
-                que, ao rolar 5 dados fisicamente, ajude a decidir em qual categoria ele deve pontuar.</p>
+            <p class="text-justify mx-4 my-4">O objetivo do exercício é desenvolver parte de um aplicativo que auxilie um jogador que, ao rolar 5 dados fisicamente, ajude a decidir em qual categoria ele deve pontuar.</p>
             <div class="row my-4">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
+                <div class="col-12 col-sm-12 col-md-1 text-center mb-1"></div>
+                <div class="col-12 col-sm-12 col-md-2 text-center mb-1">
                     <img id="dado1" src="assets/img/dados-1.png" val="1">
                 </div>
-                <div class="col-md-2">
+                <div class="col-12 col-sm-12 col-md-2 text-center mb-1">
                     <img id="dado2" src="assets/img/dados-2.png" val="2">
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-12 col-sm-12 col-md-2 text-center mb-1">
                     <img id="dado3" src="assets/img/dados-3.png" val="3">
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-12 col-sm-12 col-md-2 text-center mb-1">
                     <img id="dado4" src="assets/img/dados-4.png" val="4">
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-12 col-sm-12 col-md-2 text-center mb-1">
                     <img id="dado5" src="assets/img/dados-5.png" val="5">
                 </div>
             </div>
@@ -50,7 +49,7 @@
         </div>
     </div>
 
-    <div class="card mt-4 invisivel" id="resultado">
+    <div class="card mt-4 invisivel" id="variacao">
         <div class="card-header"><h4>Possíveis Pontuações</h4></div>
         <div class="card-body">
            <div class="row">
@@ -91,6 +90,19 @@
                            <th scope="row">Par</th>
                            <td id="par"></td>
                        </tr>
+                       </tbody>
+                   </table>
+               </div>
+
+               <div class="col-md-6">
+                   <table class="table table-striped">
+                       <thead>
+                       <tr>
+                           <th>Categoria</th>
+                           <th>Pontuação</th>
+                       </tr>
+                       </thead>
+                       <tbody>
                        <tr>
                            <th scope="row">Dois Pares</th>
                            <td id="pares"></td>
@@ -122,35 +134,48 @@
                        </tbody>
                    </table>
                </div>
-
-               <div class="col-md-6">
-                   <p class="card-text">Pontuação máxima obtida é:</p>
-                   <input type="text" id="pontuacao" class="form-control" readonly>
-
-                   <hr>
-                   <p class="card-text">Selecione em qual categoria deseja pontuar.</p>
-                   <select class="form-control" id="categoria">
-                       <option value="uns">Uns</option>
-                       <option value="dois">Dois</option>
-                       <option value="tres">Três</option>
-                       <option value="quatros">Quatros</option>
-                       <option value="cincos">Cincos</option>
-                       <option value="seis">Seis</option>
-                       <option value="par">Par</option>
-                       <option value="pares">Dois Pares</option>
-                       <option value="trio">Trio</option>
-                       <option value="quadra">Quadra</option>
-                       <option value="menor">Sequencia Menor</option>
-                       <option value="maior">Sequencia Maior</option>
-                       <option value="full">Full House</option>
-                       <option value="aurora">Aurora</option>
-                   </select>
-
-                   <hr>
-                   <p class="card-text">Sua pontuação:</p>
-                   <input type="text" id="" class="form-control" readonly>
-               </div>
            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p class="card-text text-right mt-2">Pontuação máxima obtida é:</p>
+                </div>
+                <div class="col-6">
+                    <input type="text" id="pontuacao" class="form-control mt-2" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4 invisivel" id="resultado">
+        <div class="card-header"><h4>Sua Pontuação</h4></div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="card-text">Selecione em qual categoria deseja pontuar.</p>
+                    <select class="form-control" id="categoria">
+                        <option value="uns">Uns</option>
+                        <option value="dois">Dois</option>
+                        <option value="tres">Três</option>
+                        <option value="quatros">Quatros</option>
+                        <option value="cincos">Cincos</option>
+                        <option value="seis">Seis</option>
+                        <option value="par">Par</option>
+                        <option value="pares">Dois Pares</option>
+                        <option value="trio">Trio</option>
+                        <option value="quadra">Quadra</option>
+                        <option value="menor">Sequencia Menor</option>
+                        <option value="maior">Sequencia Maior</option>
+                        <option value="full">Full House</option>
+                        <option value="aurora">Aurora</option>
+                    </select>
+                    <button id= "pontuar" class="btn btn-primary btn-rounded mt-2" onclick="pontuar();">Pontuar</button>
+                </div>
+
+                <div class="col-md-6">
+                    <p class="card-text">Sua pontuação:</p>
+                    <input type="text" id="" class="form-control" readonly>
+                </div>
+            </div>
         </div>
     </div>
 </div>
