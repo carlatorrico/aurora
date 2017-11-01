@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aurora - Jogos dos 5 dados</title>
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row my-4">
+        <div class="col-md-12">
+            <h1 class="text-center mb-2">Projeto Aurora</h1>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header"><h4>Jogo dos 5 dados</h4></div>
+        <div class="view overlay hm-white-slight">
+            <p class="text-justify mx-4 my-4">O objetivo do exercício é desenvolver parte de um aplicativo que auxilie um jogador
+                que, ao rolar 5 dados fisicamente, ajude a decidir em qual categoria ele deve pontuar.</p>
+            <div class="row my-4">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <img id="dado1" src="assets/img/dados-1.png" val="1">
+                </div>
+                <div class="col-md-2">
+                    <img id="dado2" src="assets/img/dados-2.png" val="2">
+                </div>
+
+                <div class="col-md-2">
+                    <img id="dado3" src="assets/img/dados-3.png" val="3">
+                </div>
+
+                <div class="col-md-2">
+                    <img id="dado4" src="assets/img/dados-4.png" val="4">
+                </div>
+
+                <div class="col-md-2">
+                    <img id="dado5" src="assets/img/dados-5.png" val="5">
+                </div>
+            </div>
+        </div>
+        <div class="card-body text-center">
+            <p class="card-text">Clique no botão <b>Jogar</b>.</p>
+            <button id= "iniciarJogo" class="btn btn-primary btn-rounded" onclick="iniciarJogo();">Jogar</button>
+        </div>
+    </div>
+
+    <div class="card mt-4 invisivel" id="resultado">
+        <div class="card-header"><h4>Possíveis Pontuações</h4></div>
+        <div class="card-body">
+           <div class="row">
+               <div class="col-md-6">
+                   <table class="table table-striped">
+                       <thead>
+                       <tr>
+                           <th>Categoria</th>
+                           <th>Pontuação</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                           <th scope="row">Uns</th>
+                           <td id="uns"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Dois</th>
+                           <td id="dois"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Três</th>
+                           <td id="tres"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Quatros</th>
+                           <td id="quatros"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Cincos</th>
+                           <td id="cincos"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Seis</th>
+                           <td id="seis"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Par</th>
+                           <td id="par"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Dois Pares</th>
+                           <td id="pares"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Trio</th>
+                           <td id="trio"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Quadra</th>
+                           <td id="quadra"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Sequencia Menor</th>
+                           <td id="menor"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Sequencia Maior</th>
+                           <td id="maior"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Full House</th>
+                           <td id="full"></td>
+                       </tr>
+                       <tr>
+                           <th scope="row">Aurora</th>
+                           <td id="aurora"></td>
+                       </tr>
+                       </tbody>
+                   </table>
+               </div>
+
+               <div class="col-md-6">
+                   <p class="card-text">Pontuação máxima obtida é:</p>
+                   <input type="text" id="pontuacao" class="form-control" readonly>
+
+                   <hr>
+                   <p class="card-text">Selecione em qual categoria deseja pontuar.</p>
+                   <select class="form-control" id="categoria">
+                       <option value="uns">Uns</option>
+                       <option value="dois">Dois</option>
+                       <option value="tres">Três</option>
+                       <option value="quatros">Quatros</option>
+                       <option value="cincos">Cincos</option>
+                       <option value="seis">Seis</option>
+                       <option value="par">Par</option>
+                       <option value="pares">Dois Pares</option>
+                       <option value="trio">Trio</option>
+                       <option value="quadra">Quadra</option>
+                       <option value="menor">Sequencia Menor</option>
+                       <option value="maior">Sequencia Maior</option>
+                       <option value="full">Full House</option>
+                       <option value="aurora">Aurora</option>
+                   </select>
+
+                   <hr>
+                   <p class="card-text">Sua pontuação:</p>
+                   <input type="text" id="" class="form-control" readonly>
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
+
+<script src="./node_modules/mdbootstrap/js/jquery-3.2.1.min.js"></script>
+<script src="./node_modules/mdbootstrap/js/popper.min.js"></script>
+<script src="./node_modules/mdbootstrap/js/bootstrap.js"></script>
+<script src="assets/js/aurora.js"></script>
+
+</body>
+</html>
