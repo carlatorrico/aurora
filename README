@@ -1,0 +1,20 @@
+Coding Test - Carla Torrico
+=====================================
+
+== Description:
+
+This project was developed by Carla Torrico, and contains the solution of Aurora Coding Test.
+
+The main structure is:
+
+* assets: contains css, js and images.
+* node_modules: dependencies installed.
+* gitignore
+* index.html
+* package.json
+* README
+
+To run the project, you have just to download the project.
+All dependecies were commited because the project is very small.
+
+Thanks for the opportunity, I wish you success  ;)
