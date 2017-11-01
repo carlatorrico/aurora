@@ -140,7 +140,7 @@
                     <p class="card-text text-right mt-2">Pontuação máxima obtida é:</p>
                 </div>
                 <div class="col-6">
-                    <input type="text" id="pontuacao" class="form-control mt-2" readonly>
+                    <input type="text" id="maxima" class="form-control mt-2" readonly>
                 </div>
             </div>
         </div>
@@ -153,27 +153,27 @@
                 <div class="col-md-6">
                     <p class="card-text">Selecione em qual categoria deseja pontuar.</p>
                     <select class="form-control" id="categoria">
-                        <option value="uns">Uns</option>
-                        <option value="dois">Dois</option>
-                        <option value="tres">Três</option>
-                        <option value="quatros">Quatros</option>
-                        <option value="cincos">Cincos</option>
-                        <option value="seis">Seis</option>
-                        <option value="par">Par</option>
-                        <option value="pares">Dois Pares</option>
-                        <option value="trio">Trio</option>
-                        <option value="quadra">Quadra</option>
-                        <option value="menor">Sequencia Menor</option>
-                        <option value="maior">Sequencia Maior</option>
-                        <option value="full">Full House</option>
-                        <option value="aurora">Aurora</option>
+                        <option value="0">Selecione uma Categoria</option>
+                        <option value="1" disabled>Uns</option>
+                        <option value="2" disabled>Dois</option>
+                        <option value="3" disabled>Três</option>
+                        <option value="4" disabled>Quatros</option>
+                        <option value="5" disabled>Cincos</option>
+                        <option value="6" disabled>Seis</option>
+                        <option value="7" disabled>Par</option>
+                        <option value="8" disabled>Dois Pares</option>
+                        <option value="9" disabled>Trio</option>
+                        <option value="10" disabled>Quadra</option>
+                        <option value="11" disabled>Sequencia Menor</option>
+                        <option value="12" disabled>Sequencia Maior</option>
+                        <option value="13" disabled>Full House</option>
+                        <option value="14" disabled>Aurora</option>
                     </select>
-                    <button id= "pontuar" class="btn btn-primary btn-rounded mt-2" onclick="pontuar();">Pontuar</button>
                 </div>
 
                 <div class="col-md-6">
                     <p class="card-text">Sua pontuação:</p>
-                    <input type="text" id="" class="form-control" readonly>
+                    <input type="text" id="pontuacao" class="form-control" readonly>
                 </div>
             </div>
         </div>

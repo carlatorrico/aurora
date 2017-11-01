@@ -30,10 +30,6 @@ function calcularPontuacao() {
     document.getElementById("variacao").style.display = "block";
     document.getElementById("resultado").style.display = "block";
 
-    /**
-     * calcularTotal (@frequencia, @elemento, @tipoPar)
-     */
-
     var pontosUns = calcularSimples(1);
     $("#uns").html(pontosUns);
 
@@ -86,10 +82,9 @@ function calcularPontuacao() {
     var pontosAurora = calcularAurora();
     $("#aurora").html(pontosAurora);
 
-    res = [];
+    var res = [];
     res.push(pontosUns, pontosDois, pontosTres, pontosQuatros, pontosCincos, pontosSeis, pontosPar, pontosPares, pontosTrio, pontosQuadra, pontosMenor, pontosMaior, pontosFull, pontosAurora);
-
-    $("#pontuacao").val(Math.max.apply(Math,res));
+    setCategoria(res);
 }
 
 function calcularSimples(elemento){
@@ -116,16 +111,16 @@ function calcularRepeticao(tipo, quantidade) {
 
     resObj = {};
 
-    var resultadoParcial = [];
+    // var resultadoParcial = [];
+    // Soma Pares, Trios e Quadras
     $.each(obj, function(i, repeticao) {
 
         resObj[i] = (repeticao * i);
 
-        // Soma Pares, Trios e Quadras
         if(tipo == repeticao) {
             somaTotal = somaTotal + resObj[i];
             somaPares++;
-            resultadoParcial[somaPares] = resObj[i];
+            // resultadoParcial[somaPares] = resObj[i];
         }
     });
 
@@ -134,7 +129,8 @@ function calcularRepeticao(tipo, quantidade) {
             if(somaPares == 1)
                 return somaTotal;
             else
-                return resultadoParcial[2];
+                // return resultadoParcial[2];
+                return 0;
             break;
         case 2:
             if(somaPares == 2)
@@ -234,4 +230,20 @@ function  calcularAurora() {
     } else{
         return 0;
     }
+}
+
+function setCategoria(pontos) {
+    $("#categoria").val(0);
+    var max = Math.max.apply(Math,pontos);
+
+    pontos.forEach(function(elemento, index) {
+        if(elemento == max){
+            $("#categoria option[value=" + (index +1) + "]").removeAttr('disabled');
+        } else {
+            $("#categoria option[value=" + (index +1) + "]").prop('disabled', true);
+        }
+    });
+
+    $("#maxima").val(Math.max.apply(Math,pontos));
+    $("#pontuacao").val(Math.max.apply(Math,pontos));
 }
